@@ -1,19 +1,19 @@
 {
   "canisters": {
-    "hello": {
-      "main": "src/hello/main.mo",
+    "dbank": {
+      "main": "src/dbank/main.mo",
       "type": "motoko"
     },
-    "hello_assets": {
+    "dbank_assets": {
       "dependencies": [
-        "hello"
+        "dbank"
       ],
       "frontend": {
-        "entrypoint": "src/hello_assets/src/index.html"
+        "entrypoint": "src/dbank_assets/src/index.html"
       },
       "source": [
-        "src/hello_assets/assets",
-        "dist/hello_assets/"
+        "src/dbank_assets/assets",
+        "dist/dbank_assets/"
       ],
       "type": "assets"
     }
