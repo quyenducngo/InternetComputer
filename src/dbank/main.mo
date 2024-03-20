@@ -1,39 +1,39 @@
 import Debug "mo:base/Debug";
-import Nat "mo:base/Nat";
 import Time "mo:base/Time";
 import Float "mo:base/Float";
 
 actor DBank {
-  stable var currentValue : Float = 300;
-  // currentValue := 100;
+  stable var currentValue: Float = 300;
+  currentValue := 300;
+  Debug.print(debug_show(currentValue));
 
   stable var startTime = Time.now();
-  Debug.print(debug_show (startTime));
+  startTime := Time.now();
+  Debug.print(debug_show(startTime));
 
-  let id = 1234567890;
+  let id = 2348923840928349;
+  // Debug.print(debug_show(id));
 
-  Debug.print("Hello");
-  Debug.print(debug_show (currentValue));
-  Debug.print(debug_show (id));
-
-  public func topUp(amount : Float) {
+  public func topUp(amount: Float) {
     currentValue += amount;
-    Debug.print(debug_show (currentValue));
+    Debug.print(debug_show(currentValue));
   };
 
-  public func withdrawl(amount : Float) {
-    let tempValue : Float = currentValue - amount;
-    if (currentValue - amount >= 0) {
+  public func withdraw(amount: Float) {
+    let tempValue: Float = currentValue - amount;
+    if (tempValue >= 0) {
       currentValue -= amount;
-      Debug.print(debug_show (currentValue));
+      Debug.print(debug_show(currentValue));
     } else {
-      Debug.print("Value entered is too large");
-    };
+      Debug.print("Amount too large, currentValue less than zero.")
+    }
   };
 
-  public query func checkBalance() : async Float {
+  public query func checkBalance(): async Float {
     return currentValue;
   };
+
+  // topUp();
 
   public func compound() {
     let currentTime = Time.now();
@@ -43,4 +43,19 @@ actor DBank {
     startTime := currentTime;
   };
 
-};
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
